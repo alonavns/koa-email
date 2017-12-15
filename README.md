@@ -12,6 +12,7 @@ KSK includes some lovely common setup:
 - [x] Authentication with JSON Web Token 
 - [ ] Authorization with built-in solution
 - [x] CORS accepts request from domain white list
+- [x] Elastic email integration
 
 want more? Folk and submit your regular tasks.
 
@@ -19,10 +20,10 @@ want more? Folk and submit your regular tasks.
 KSK requires Node >= 7.6 or higher.
 
 ### Getting Started
-First we'll clone source code from [GitHub Repo](https://github.com/nhtua/koa-starter-kit.git)
+First we'll clone source code from [GitHub Repo](https://github.com/alonavns/koa-starter-kit.git)
 
 ```shell
-  git clone https://github.com/nhtua/koa-starter-kit.git
+  git clone https://github.com/alonavns/koa-starter-kit.git
 ```
 
 Then we need to install the dependencies
