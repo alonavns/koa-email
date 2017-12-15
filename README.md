@@ -105,6 +105,12 @@ Login to get the jwt token.
 }
 ```
 
+#### /emails
+Start cron job.
+
+- request config:
+  + Method: GET
+
 #### /user
 Get user list
 
