@@ -5,8 +5,8 @@ import bcrypt from 'bcrypt';
 
 const router = new Router();
 
-router.post('/login', async (ctx, next) =>{
-  const {username} = ctx.request.body;
+router.post('/login', async (ctx, next) => {
+  const { username } = ctx.request.body;
   const user = {
     id: 1,
     username: 'john_doe',
@@ -18,9 +18,9 @@ router.post('/login', async (ctx, next) =>{
     created_at: '2017-08-31 00:00:00'
   }; //I pretend this user was found from database
 
-  const checkPwd = await bcrypt.compare( ctx.request.body.password, user.password );
+  const checkPwd = await bcrypt.compare(ctx.request.body.password, user.password);
 
-  if ( checkPwd ) {
+  if (checkPwd) {
     const payload = {
       id: user.id,
       username: user.username,
@@ -47,5 +47,18 @@ router.post('/login', async (ctx, next) =>{
   await next();
 });
 
+router.get('/emails', async (ctx, next) => {
+  CONFIG.CRON({
+    onTick: () => {
+      console.log('started at ' + new Date())
+      CONFIG.EMAIL.send_eamil((err, result) => {
+        if (err) return console.log('Email send failed with reason : ', err);
+        console.log('ended at ' + new Date())
+        return console.log('Email sent successfully with result : ', result);
+      });
+    }
+  });
+  await next();
+});
 
 export default router;
